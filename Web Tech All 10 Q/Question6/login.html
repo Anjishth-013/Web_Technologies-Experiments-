@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    .form-box {
+      width: 300px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #eee;
+      border-radius: 10px;
+      text-align: center;
+    }
+    input {
+      width: 90%;
+      margin: 10px 0;
+      padding: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="register.html">Register</a>
+  <a href="login.html">Login</a>
+  <a href="index.html">Home</a>
+
+  <h1 style="text-align:center;">Login</h1>
+
+  <div class="form-box">
+    <input type="text" id="loginUser" placeholder="Username"><br>
+    <input type="password" id="loginPass" placeholder="Password"><br>
+    <button onclick="login()">Login</button>
+    <p id="msg"></p>
+  </div>
+
+  <script>
+    function login() {
+      let user = document.getElementById("loginUser").value;
+      let pass = document.getElementById("loginPass").value;
+
+      let storedUser = localStorage.getItem("username");
+      let storedPass = localStorage.getItem("password");
+
+      if (user === storedUser && pass === storedPass) {
+        document.getElementById("msg").innerText = "Login Successful!";
+      } else {
+        document.getElementById("msg").innerText = "Invalid credentials!";
+      }
+    }
+  </script>
+
+</body>
+</html>

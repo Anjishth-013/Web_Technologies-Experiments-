@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    .form-box {
+      width: 300px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #eee;
+      border-radius: 10px;
+      text-align: center;
+    }
+    input {
+      width: 90%;
+      margin: 10px 0;
+      padding: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="register.html">Register</a>
+  <a href="login.html">Login</a>
+  <a href="index.html">Home</a>
+
+  <h1 style="text-align:center;">Register</h1>
+
+  <div class="form-box">
+    <input type="text" id="username" placeholder="Username"><br>
+    <input type="email" id="email" placeholder="Email"><br>
+    <input type="password" id="password" placeholder="Password"><br>
+    <button onclick="register()">Register</button>
+    <p id="msg"></p>
+  </div>
+
+  <script>
+    function register() {
+      let user = document.getElementById("username").value;
+      let email = document.getElementById("email").value;
+      let pass = document.getElementById("password").value;
+
+      if (user === "" || email === "" || pass === "") {
+        document.getElementById("msg").innerText = "All fields required!";
+        return;
+      }
+      if (pass.length < 6) {
+        document.getElementById("msg").innerText = "Password must be 6+ characters!";
+        return;
+      }
+
+      localStorage.setItem("username", user);
+      localStorage.setItem("email", email);
+      localStorage.setItem("password", pass);
+      document.getElementById("msg").innerText = "Registered successfully!";
+    }
+  </script>
+
+</body>
+</html>

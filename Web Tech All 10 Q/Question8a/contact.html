@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact Us - Cat House</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .form-box {
+      width: 400px;
+      margin: 40px auto;
+      padding: 25px;
+      background: #f0f4f8;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .form-box input, .form-box textarea {
+      width: 95%;
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #aaa;
+      font-size: 1em;
+    }
+    .form-box button {
+      width: 100%;
+      padding: 10px;
+      background: #222;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .form-box button:hover {
+      background: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <a href="index.html">Main Menu</a>
+    <a href="house1.html">Geto's house</a>
+    <a href="house2.html">GOJO's house</a>
+    <a href="house3.html">Sukuna's house</a>
+    <a href="house4.html">Yuji's house</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <h1 style="text-align:center;">Contact the Cat House 🐱</h1>
+
+  <div class="form-box">
+    <form action="contact_process.php" method="POST">
+
+      <label>Name:</label>
+      <input type="text" name="name" placeholder="Enter your name">
+
+      <label>Email:</label>
+      <input type="email" name="email" placeholder="Enter your email">
+
+      <label>Phone:</label>
+      <input type="text" name="phone" placeholder="Enter your phone number">
+
+      <label>Message:</label>
+      <textarea name="message" rows="4"
+        placeholder="Leave a message for the cat owner..."></textarea>
+
+      <button type="submit">Send Message</button>
+
+    </form>
+  </div>
+
+</body>
+</html>

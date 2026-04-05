@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Shop</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    marquee {
+      color: #333;
+      font-size: 1.2em;
+      margin-top: 10px;
+    }
+    img {
+      width: 100px;
+      height: auto;
+    }
+    #cartCount {
+      color: #ff9800;
+      font-weight: bold;
+    }
+    #cartMsg {
+      text-align: center;
+      font-size: 1.1em;
+      color: green;
+      min-height: 25px;
+    }
+    #searchInput {
+      display: block;
+      margin: 10px auto;
+      padding: 8px;
+      width: 250px;
+      font-size: 1em;
+      border-radius: 5px;
+      border: 1px solid #aaa;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 style="letter-spacing: 2px;">🛍 Simple Shop</h1>
+  <nav>
+    <a href="#home">Home</a> |
+    <a href="#products">Products</a>
+  </nav>
+</header>
+
+<hr>
+
+<section id="home">
+  <h2 style="text-align:center;">Welcome to Simple Shop</h2>
+  <marquee>Your one-stop destination for everything you didn't know you needed.</marquee>
+</section>
+
+<hr>
+
+<!-- Event: onkeyup - search/filter -->
+<section>
+  <h2 style="text-align:center;">Event: onkeyup — Search Products</h2>
+  <input type="text" id="searchInput" placeholder="Search products..."
+    onkeyup="filterProducts()">
+</section>
+
+<hr>
+
+<section id="products">
+  <h2 style="text-align:center;">Products</h2>
+
+  <!-- Cart count display -->
+  <p style="text-align:center;">
+    🛒 Cart Items: <span id="cartCount">0</span>
+  </p>
+  <p id="cartMsg"></p>
+
+  <table border="1" id="productTable">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Buy</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <!-- Row 1 -->
+      <tr class="product-row">
+        <td>
+          <figure>
+            <!-- onmouseover / onmouseout: zoom effect -->
+            <img src="headphones.png" alt="Headphones"
+              onmouseover="this.style.transform='scale(1.2)'"
+              onmouseout="this.style.transform='scale(1)'">
+            <figcaption>Wireless Headphones</figcaption>
+          </figure>
+        </td>
+        <td>High quality sound with noise cancellation.</td>
+        <td style="color: green; font-weight: bold;">₹2999</td>
+        <td>
+          <!-- onclick: add to cart -->
+          <button type="button"
+            onclick="addToCart('Wireless Headphones')">Add to Cart</button>
+        </td>
+      </tr>
+
+      <!-- Row 2 -->
+      <tr class="product-row">
+        <td>
+          <figure>
+            <img src="watch.png" alt="Watch"
+              onmouseover="this.style.transform='scale(1.2)'"
+              onmouseout="this.style.transform='scale(1)'">
+            <figcaption>Smart Watch</figcaption>
+          </figure>
+        </td>
+        <td>Track your fitness and notifications.</td>
+        <td style="color: green; font-weight: bold;">₹4999</td>
+        <td>
+          <button type="button"
+            onclick="addToCart('Smart Watch')">Add to Cart</button>
+        </td>
+      </tr>
+
+      <!-- Row 3 -->
+      <tr class="product-row">
+        <td>
+          <figure>
+            <img src="mouse.png" alt="Mouse"
+              onmouseover="this.style.transform='scale(1.2)'"
+              onmouseout="this.style.transform='scale(1)'">
+            <figcaption>Gaming Mouse</figcaption>
+          </figure>
+        </td>
+        <td>Precision and speed for gamers.</td>
+        <td style="color: green; font-weight: bold;">₹1499</td>
+        <td>
+          <button type="button"
+            onclick="addToCart('Gaming Mouse')">Add to Cart</button>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <!-- ondblclick: clear cart -->
+  <div style="text-align:center; margin-top:15px;">
+    <button ondblclick="clearCart()"
+      style="background:red; color:white; padding:8px 16px; border:none; border-radius:5px; cursor:pointer;">
+      Double Click to Clear Cart
+    </button>
+  </div>
+
+</section>
+
+<script>
+  let cartCount = 0;
+
+  // onclick: add to cart
+  function addToCart(name) {
+    cartCount++;
+    document.getElementById("cartCount").innerText = cartCount;
+    document.getElementById("cartMsg").innerText =
+      "✅ " + name + " added to cart!";
+    setTimeout(() => {
+      document.getElementById("cartMsg").innerText = "";
+    }, 2000);
+  }
+
+  // ondblclick: clear cart
+  function clearCart() {
+    cartCount = 0;
+    document.getElementById("cartCount").innerText = cartCount;
+    document.getElementById("cartMsg").innerText = "🗑️ Cart cleared!";
+    setTimeout(() => {
+      document.getElementById("cartMsg").innerText = "";
+    }, 2000);
+  }
+
+  // onkeyup: filter/search products
+  function filterProducts() {
+    let input = document.getElementById("searchInput").value.toLowerCase();
+    let rows = document.querySelectorAll(".product-row");
+    rows.forEach(row => {
+      let text = row.innerText.toLowerCase();
+      row.style.display = text.includes(input) ? "" : "none";
+    });
+  }
+</script>
+
+</body>
+</html>

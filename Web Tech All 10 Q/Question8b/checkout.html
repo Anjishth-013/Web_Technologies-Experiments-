@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout - Simple Shop</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .form-box {
+      width: 420px;
+      margin: 40px auto;
+      padding: 25px;
+      background: #f4f6f8;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.15);
+    }
+    .form-box input, .form-box select {
+      width: 95%;
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #aaa;
+      font-size: 1em;
+    }
+    .form-box button {
+      width: 100%;
+      padding: 10px;
+      background: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .form-box button:hover {
+      background: #555;
+    }
+    label {
+      font-weight: bold;
+      font-size: 0.95em;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 style="letter-spacing: 2px;">🛍 Simple Shop</h1>
+  <nav>
+    <a href="index.html">Home</a> |
+    <a href="#products">Products</a> |
+    <a href="checkout.html">Checkout</a>
+  </nav>
+</header>
+
+<hr>
+
+<h1 style="text-align:center;">Checkout 🛒</h1>
+
+<div class="form-box">
+  <form action="checkout_process.php" method="POST">
+
+    <label>Full Name:</label>
+    <input type="text" name="fullname" placeholder="Enter your full name">
+
+    <label>Email:</label>
+    <input type="email" name="email" placeholder="Enter your email">
+
+    <label>Phone:</label>
+    <input type="text" name="phone" placeholder="Enter 10-digit phone number">
+
+    <label>Address:</label>
+    <input type="text" name="address" placeholder="Enter delivery address">
+
+    <label>Product:</label>
+    <select name="product">
+      <option value="">-- Select a Product --</option>
+      <option value="Wireless Headphones - ₹2999">Wireless Headphones - ₹2999</option>
+      <option value="Smart Watch - ₹4999">Smart Watch - ₹4999</option>
+      <option value="Gaming Mouse - ₹1499">Gaming Mouse - ₹1499</option>
+    </select>
+
+    <label>Payment Method:</label>
+    <select name="payment">
+      <option value="">-- Select Payment --</option>
+      <option value="Credit Card">Credit Card</option>
+      <option value="Debit Card">Debit Card</option>
+      <option value="UPI">UPI</option>
+      <option value="Cash on Delivery">Cash on Delivery</option>
+    </select>
+
+    <button type="submit">Place Order</button>
+
+  </form>
+</div>
+
+</body>
+</html>
